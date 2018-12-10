@@ -1,0 +1,18 @@
+.navbar {
+    display:flex; 
+    justify-content: space-between;
+    padding-top: 20px;
+
+    &__left {
+        margin-left: 15px;
+    }
+
+    &__right { 
+        margin-right: 15px;
+    }
+
+}
+
+.icon-font_left-margin {
+    margin-left: 25px;
+}

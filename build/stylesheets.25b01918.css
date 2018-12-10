@@ -1157,3 +1157,15 @@ html {
 .icon-font {
   color: #ccc;
   font-size: 2em; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px; }
+  .navbar__left {
+    margin-left: 15px; }
+  .navbar__right {
+    margin-right: 15px; }
+
+.icon-font_left-margin {
+  margin-left: 25px; }
