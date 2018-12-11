@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Travel</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
@@ -20,12 +21,20 @@
             </div>
 
             <!-- Title -->
-            <transition appear name="fade">
                 <div class="title text-center m-b-64">
-                    <h1 class="heading heading_title title_block m-b-8">Cucas Peak</h1>
+                    <h1 class="heading heading_title title_block m-b-8">
+                        <transition-group
+                            appear
+                            tag="span"
+                            @before-enter="beforeEnter"
+                            @enter="enter"
+                            @leave="leave"
+                        >
+                            <span :data-index="index" v-for="(letter, index) in title" :key="letter">{{letter}}</span>
+                        </transition-group>
+                    </h1>
                     <h2 class="heading heading_subtitle">Romania</h2>
                 </div>
-            </transition>
 
             <transition appear name="fade">
                 <article class="popup">
@@ -53,7 +62,35 @@
         <script type="text/javascript" src="./src/index.js"></script>
         <script>
             new Vue({
-                el: '#root'
+                el: '#root',
+                data: {
+                    title: 'Cucas Peak'
+                },
+                methods: {
+                    beforeEnter: function (el) {
+                        el.style.opacity = 0;
+                    },
+                    enter: function (el, done) {
+                        var delay = Math.floor(Math.random() * Math.floor(500));
+                        setTimeout(function () {
+                        Velocity(
+                            el,
+                            { opacity: 1 },
+                            { complete: done }
+                            )
+                        }, delay)
+                    },
+                    leave: function (el, done) {
+                        var delay = Math.floor(Math.random() * Math.floor(500));
+                        setTimeout(function () {
+                            Velocity(
+                            el,
+                            { opacity: 0 },
+                            { complete: done }
+                            )
+                        }, delay)
+                    }
+                }
             });
         </script>
     </body>
