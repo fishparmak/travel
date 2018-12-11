@@ -1,6 +1,8 @@
 @import "reset";
+@import "main";
 @import "../node_modules/bootstrap/scss/bootstrap-grid";
 @import "variables";
 @import "utilities";
-@import "awesome";
 @import "navbar";
+@import "popup/style";
+@import "awesome";

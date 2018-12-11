@@ -1,2 +1,7 @@
 @import "../src/variables";
 @import "../src/all";
+
+body {
+	background: url("img/bg-test.jpeg") center no-repeat;
+	background-size: cover;
+}
