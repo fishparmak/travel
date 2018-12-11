@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "npm run clean && parcel ./index.html --out-dir build/",
     "build": "npm run clean && parcel build ./index.html --out-dir build/",
-    "clean": "rm -r build/"
+    "clean": "rmdir build /s /q"
   },
   "repository": {
     "type": "git",
