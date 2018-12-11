@@ -1168,14 +1168,19 @@ html {
   .align-self-xl-stretch {
     align-self: stretch !important; } }
 
-.text-center {
-  text-align: center !important; }
-
-.m-none {
-  margin: 0 !important; }
-
-.p-none {
-  padding: 0 !important; }
+.heading {
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 600; }
+  .heading_title {
+    font-size: 26px;
+    line-height: 27px;
+    letter-spacing: 1.73px; }
+  .heading_subtitle {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 10px; }
 
 .navbar {
   display: flex;
@@ -1267,6 +1272,21 @@ html {
 .icon-font {
   color: #ccc;
   font-size: 2em; }
+
+.text-center {
+  text-align: center !important; }
+
+.m-none {
+  margin: 0 !important; }
+
+.p-none {
+  padding: 0 !important; }
+
+.m-b-8 {
+  margin-bottom: 8px; }
+
+.m-b-64 {
+  margin-bottom: 64px; }
 
 body {
   background: url("bg-test.dd509eb1.jpeg") center no-repeat;
