@@ -12,5 +12,61 @@
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all .5s; 
+  transition: all .5s;
+}
+
+// arrive (title) animation
+
+
+// .arrive-enter {
+//     transform: scale(0.4);
+//     transform: translate3d(30%,45%,0);
+// }
+//
+// .arrive-enter-to {
+//     transform: translate3d(20%,30%,0);
+//     transform: scale(1);
+// }
+//
+// .arrive-leave {
+//     transform: translate3d(10%,15%,0);
+//     transform: scale(1);
+// }
+//
+// .arrive-leave-to {
+//     transform: translate3d(0,0,0);
+//     transform: scale(1);
+// }
+
+.arrive-enter-active {
+    // transition: all 1s ease-out;
+     animation: maxScale 1.3s ease-out forwards;
+}
+.arrive-leave-active {
+  transition: all 1.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+
+@keyframes maxScale {
+    0% {
+        transform: translate3d(30%,45%,0) scale(0.3);
+    }
+    100% {
+        transform:  translate3d(0,0,0) scale(1);
+    }
+    // from {
+    //     transform: translate3d(30%,45%,0) scale(0.1);
+    // }
+    // to {
+    //     transform: translate3d(0,0,0) scale(1);
+    // }
+}
+
+@keyframes maxScaleAfter {
+    from {
+        transform: scale(0.7);
+    }
+    to {
+        transform: translate3d(0,0,0) scale(1);
+    }
 }

@@ -21,21 +21,22 @@
             </div>
 
             <!-- Title -->
-                <div class="title text-center m-b-64">
-                    <h1 class="heading heading_title title_block m-b-8">
-                        <transition-group
-                            appear
-                            tag="span"
-                            @before-enter="beforeEnter"
-                            @enter="enter"
-                            @leave="leave"
-                        >
-                            <span :data-index="index" v-for="(letter, index) in title" :key="letter">{{letter}}</span>
-                        </transition-group>
-                    </h1>
-                    <h2 class="heading heading_subtitle">Romania</h2>
-                </div>
-
+            <transition appear name="arrive">
+                    <div class="title text-center m-b-64 d-block">
+                        <h1 class="heading heading_title title_block m-b-8">
+                            <transition-group
+                                appear
+                                tag="span"
+                                @before-enter="beforeEnter"
+                                @enter="enter"
+                                @leave="leave"
+                            >
+                                <span :data-index="index" v-for="(letter, index) in title" :key="letter">{{letter}}</span>
+                            </transition-group>
+                        </h1>
+                        <h2 class="heading heading_subtitle">Romania</h2>
+                    </div>
+            </transition>
             <transition appear name="fade">
                 <article class="popup">
                     <a href="#" class="popup__save">
@@ -71,17 +72,29 @@
                         el.style.opacity = 0;
                     },
                     enter: function (el, done) {
-                        var delay = Math.floor(Math.random() * Math.floor(500));
                         setTimeout(function () {
-                        Velocity(
-                            el,
-                            { opacity: 1 },
-                            { complete: done }
-                            )
-                        }, delay)
+                            var delay = Math.floor(Math.random() * Math.floor(700));
+                            setTimeout(function () {
+                            Velocity(
+                                el,
+                                { opacity: 1 },
+                                { complete: done }
+                                )
+                            }, delay)
+                        },550);
                     },
+                    // enter: function (el, done) {
+                    //     var delay = Math.floor(Math.random() * Math.floor(800));
+                    //     setTimeout(function () {
+                    //     Velocity(
+                    //         el,
+                    //         { opacity: 1 },
+                    //         { complete: done }
+                    //         )
+                    //     }, delay)
+                    // },
                     leave: function (el, done) {
-                        var delay = Math.floor(Math.random() * Math.floor(500));
+                        var delay = Math.floor(Math.random() * Math.floor(700));
                         setTimeout(function () {
                             Velocity(
                             el,
