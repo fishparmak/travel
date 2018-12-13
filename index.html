@@ -12,31 +12,38 @@
         <div id="root">
             <div class="navbar m-b-64">
                 <div class="navbar__left">
-                    <span class="icon-font"><i class="icon-menu"></i></span>
+                    <span><i class="icon-menu"></i></span>
                 </div>
                 <div class="navbar__right">
-                    <span class="icon-font"><i class="icon-camera" ></i></span>
-                    <span class="icon-font icon-font_left-margin"><i class="icon-navigation"></i></span>
+                    <span><i class="icon-camera"></i></span>
+                    <span class="m-l-24"><i class="icon-navigation"></i></span>
                 </div>
             </div>
 
             <!-- Title -->
             <transition appear name="arrive">
-                    <div class="title text-center m-b-64 d-block">
-                        <h1 class="heading heading_title title_block m-b-8">
-                            <transition-group
-                                appear
-                                tag="span"
-                                @before-enter="beforeEnter"
-                                @enter="enter"
-                                @leave="leave"
+                <div class="title text-center m-b-64 d-block">
+                    <h1 class="heading heading_title title_block m-b-8">
+                        <transition-group
+                            appear
+                            tag="span"
+                            @before-enter="beforeEnter"
+                            @enter="enter"
+                            @leave="leave"
+                        >
+                            <span
+                                v-for="(letter, index) in title"
+                                :key="`${index}-${letter}`"
+                                :data-index="index" 
                             >
-                                <span :data-index="index" v-for="(letter, index) in title" :key="letter">{{letter}}</span>
-                            </transition-group>
-                        </h1>
-                        <h2 class="heading heading_subtitle">Romania</h2>
-                    </div>
+                                {{letter}}
+                            </span>
+                        </transition-group>
+                    </h1>
+                    <h2 class="heading heading_subtitle">Romania</h2>
+                </div>
             </transition>
+
             <transition appear name="fade">
                 <article class="popup">
                     <a href="#" class="popup__save">
@@ -68,28 +75,37 @@
                     title: 'Cucas Peak'
                 },
                 methods: {
-                    beforeEnter: function (el) {
+                    beforeEnter(el) {
                         el.style.opacity = 0;
                     },
-                    enter: function (el, done) {
+                    enter(el, done) {
                         setTimeout(function () {
                             var delay = Math.floor(Math.random() * Math.floor(700));
                             setTimeout(function () {
                             Velocity(
                                 el,
-                                { opacity: 1 },
-                                { complete: done }
-                                )
+                                {
+                                    opacity: 1
+                                },
+                                {
+                                    complete: done
+                                }
+                            )
                             }, delay)
                         },550);
                     },
-                    leave: function (el, done) {
+                    leave(el, done) {
                         var delay = Math.floor(Math.random() * Math.floor(700));
+
                         setTimeout(function () {
                             Velocity(
-                            el,
-                            { opacity: 0 },
-                            { complete: done }
+                                el,
+                                {
+                                    opacity: 0
+                                },
+                                {
+                                    complete: done
+                                }
                             )
                         }, delay)
                     }
