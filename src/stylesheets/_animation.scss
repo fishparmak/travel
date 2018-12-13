@@ -1,16 +1,51 @@
 .fade-enter,
 .fade-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
-
 
 .fade-leave,
 .fade-enter-to {
-  opacity: 1;
+    opacity: 1;
 }
-
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all .5s; 
+    transition: all .5s;
 }
+
+// arrive (title) animation
+.arrive-enter-to {
+    animation: enterScale 3s ease-out;
+}
+
+@keyframes enterScale {
+    0% {
+        transform: scale(0.8) translate(20%, 35%);
+    }
+    20% {
+        transform: scale(0.8) translate(0, 0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+// Popup
+
+.popup-enter-active, 
+.popup-leave-active {
+	transition: all .5s;
+}
+
+.popup-enter, 
+.popup-leave-to  {
+ 	height: 0;
+ 	font-size: 0;
+}
+
+.popup-leave,
+.popup-enter-to {
+  	height: 126px;
+  	font-size: 62.5%;
+}
+
