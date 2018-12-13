@@ -29,3 +29,23 @@
         transform: scale(1);
     }
 }
+
+// Popup
+
+.popup-enter-active, 
+.popup-leave-active {
+	transition: all .5s;
+}
+
+.popup-enter, 
+.popup-leave-to  {
+ 	height: 0;
+ 	font-size: 0;
+}
+
+.popup-leave,
+.popup-enter-to {
+  	height: 126px;
+  	font-size: 62.5%;
+}
+
