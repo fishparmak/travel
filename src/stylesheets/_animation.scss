@@ -3,12 +3,10 @@
     opacity: 0;
 }
 
-
 .fade-leave,
 .fade-enter-to {
     opacity: 1;
 }
-
 
 .fade-enter-active,
 .fade-leave-active {
@@ -16,15 +14,18 @@
 }
 
 // arrive (title) animation
-.arrive-enter-active {
-    animation: maxScale 1.3s ease-out forwards;
+.arrive-enter-to {
+    animation: enterScale 3s ease-out;
 }
 
-@keyframes maxScale {
+@keyframes enterScale {
     0% {
-        transform: translate3d(30%,45%,0) scale(0.3);
+        transform: scale(0.8) translate(20%, 35%);
+    }
+    20% {
+        transform: scale(0.8) translate(0, 0);
     }
     100% {
-        transform:  translate3d(0,0,0) scale(1);
+        transform: scale(1);
     }
 }

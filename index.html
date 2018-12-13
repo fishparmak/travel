@@ -21,8 +21,8 @@
             </div>
 
             <!-- Title -->
-            <transition appear name="arrive">
-                <div class="title text-center m-b-64 d-block">
+            <transition appear name="arrive" @after-enter="onTitleEnter">
+                <div class="title text-center m-b-64 d-block" :class="{ 'title-entered': titleEntered }">
                     <h1 class="heading heading_title title_block m-b-8">
                         <transition-group
                             appear
@@ -72,30 +72,35 @@
             new Vue({
                 el: '#root',
                 data: {
-                    title: 'Cucas Peak'
+                    title: 'Cucas Peak',
+                    titleEntered: false
                 },
                 methods: {
+                    onTitleEnter (el, done) {
+                        this.titleEntered = true;
+                    },
                     beforeEnter(el) {
                         el.style.opacity = 0;
                     },
                     enter(el, done) {
                         setTimeout(function () {
-                            var delay = Math.floor(Math.random() * Math.floor(700));
+                            const delay = Math.floor(Math.random() * Math.floor(700));
+
                             setTimeout(function () {
-                            Velocity(
-                                el,
-                                {
-                                    opacity: 1
-                                },
-                                {
-                                    complete: done
-                                }
-                            )
+                                Velocity(
+                                    el,
+                                    {
+                                        opacity: 1
+                                    },
+                                    {
+                                        complete: done
+                                    }
+                                )
                             }, delay)
-                        },550);
+                        }, 550);
                     },
                     leave(el, done) {
-                        var delay = Math.floor(Math.random() * Math.floor(700));
+                        const delay = Math.floor(Math.random() * Math.floor(700));
 
                         setTimeout(function () {
                             Velocity(
