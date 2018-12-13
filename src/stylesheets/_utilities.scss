@@ -15,9 +15,21 @@
 .m-b-8 {
     margin-bottom: 8px;
 }
+
 .m-b-64 {
     margin-bottom: 64px;
 }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
 
 @media (min-width: 320px) {
 
