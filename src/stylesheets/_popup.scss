@@ -2,6 +2,7 @@ $bg-color: rgba(255,255,255,.7);
 
 .popup {
 	display: block;
+	position: relative;
 	font-size: 62.5%;
 	padding: 16px 20px;
 
@@ -26,7 +27,7 @@ $bg-color: rgba(255,255,255,.7);
 		right: 0;
  		filter: blur(3px);
  		background: $bg-image no-repeat center;
- 		background-size: cover;
+ 		background-size: 284%;
  		z-index: -1;
 	}
 
