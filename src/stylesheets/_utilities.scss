@@ -20,6 +20,10 @@
     margin-bottom: 64px;
 }
 
+.m-l-24 {
+    margin-left: 24px;
+}
+
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -31,9 +35,11 @@
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 
+
 @media (min-width: 320px) {
 
 }
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
 

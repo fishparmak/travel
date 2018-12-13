@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Travel</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	</head>
-	<body class="page">
-		<div id="root">
-			<div class="navbar m-b-64">
-				<div class="navbar__left">
-					<span class="icon-font"><i class="icon-menu"></i></span>
-				</div>
-				<div class="navbar__right">
-					<span class="icon-font"><i class="icon-camera"></i></span>
-					<span class="icon-font icon-font_left-margin"><i class="icon-navigation"></i></span>
-				</div>
-			</div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Travel</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <div class="navbar m-b-64">
+                <div class="navbar__left">
+                    <span><i class="icon-menu"></i></span>
+                </div>
+                <div class="navbar__right">
+                    <span><i class="icon-camera"></i></span>
+                    <span class="m-l-24"><i class="icon-navigation"></i></span>
+                </div>
+            </div>
 
-			<!-- Title -->
-				<div class="title text-center m-b-64">
-					<h1 class="heading heading_title title_block m-b-8">
-						<transition-group
-							appear
-							tag="span"
-							@before-enter="beforeEnter"
-							@enter="enter"
-							@leave="leave"
-						>
-							<span :data-index="index" v-for="(letter, index) in title" :key="letter">{{letter}}</span>
-						</transition-group>
-					</h1>
-					<h2 class="heading heading_subtitle">Romania</h2>
-				</div>
+            <!-- Title -->
+            <transition appear name="arrive" @after-enter="onTitleEnter">
+                <div class="title text-center m-b-64 d-block" :class="{ 'title-entered': titleEntered }">
+                    <h1 class="heading heading_title title_block m-b-8">
+                        <transition-group
+                            appear
+                            tag="span"
+                            @before-enter="beforeEnter"
+                            @enter="enter"
+                            @leave="leave"
+                        >
+                            <span
+                                v-for="(letter, index) in title"
+                                :key="`${index}-${letter}`"
+                                :data-index="index" 
+                            >
+                                {{letter}}
+                            </span>
+                        </transition-group>
+                    </h1>
+                    <h2 class="heading heading_subtitle">Romania</h2>
+                </div>
+            </transition>
 
 			<transition appear name="popup">
 				<article class="popup page__popup">
@@ -60,45 +68,62 @@
 			</transition>
 		</div>
 
-		<script type="text/javascript" src="./src/index.js"></script>
-		<script>
-			new Vue({
-				el: '#root',
-				data: {
-					title: 'Cucas Peak',
-					likes: 123,
+
+        <script type="text/javascript" src="./src/index.js"></script>
+        <script>
+            new Vue({
+                el: '#root',
+                data: {
+                    title: 'Cucas Peak',
+                    titleEntered: false,
+                    likes: 123,
 					isLike: false
-				},
-				methods: {
-					beforeEnter: function (el) {
-						el.style.opacity = 0;
-					},
-					enter: function (el, done) {
-						var delay = Math.floor(Math.random() * Math.floor(500));
-						setTimeout(function () {
-						Velocity(
-							el,
-							{ opacity: 1 },
-							{ complete: done }
-							)
-						}, delay)
-					},
-					leave: function (el, done) {
-						var delay = Math.floor(Math.random() * Math.floor(500));
-						setTimeout(function () {
-							Velocity(
-							el,
-							{ opacity: 0 },
-							{ complete: done }
-							)
-						}, delay)
-					},
-					count: function() {
+                },
+                methods: {
+                    onTitleEnter (el, done) {
+                        this.titleEntered = true;
+                    },
+                    beforeEnter(el) {
+                        el.style.opacity = 0;
+                    },
+                    enter(el, done) {
+                        setTimeout(function () {
+                            const delay = Math.floor(Math.random() * Math.floor(700));
+
+                            setTimeout(function () {
+                                Velocity(
+                                    el,
+                                    {
+                                        opacity: 1
+                                    },
+                                    {
+                                        complete: done
+                                    }
+                                )
+                            }, delay)
+                        }, 550);
+                    },
+                    leave(el, done) {
+                        const delay = Math.floor(Math.random() * Math.floor(700));
+
+                        setTimeout(function () {
+                            Velocity(
+                                el,
+                                {
+                                    opacity: 0
+                                },
+                                {
+                                    complete: done
+                                }
+                            )
+                        }, delay)
+                    },
+                    count: function() {
 						if (!this.isLike) { this.likes += 1 }
 						this.isLike = true
 					}
-				}
-			});
-		</script>
-	</body>
+                }
+            });
+        </script>
+    </body>
 </html>
