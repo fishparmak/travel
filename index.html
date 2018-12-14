@@ -4,11 +4,73 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
         <title>Travel</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+       <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+         <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+var i = 0;
+
+function bgNew() {
+    let element = document.getElementsByTagName('body')[0];
+    element.classList.remove('Bg3');
+    element.classList.add('Bg1');
+    i++;
+    if (i < 1000) {
+        setTimeout(
+            function() {
+                $( document ).click(function() {
+                    $( "#toggle" ).effect( "shake" );
+                });
+                bgNew2();
+            },
+            2000
+        );
+    }
+}
+
+function bgNew2() {
+    let element = document.getElementsByTagName('body')[0];
+    element.classList.remove('Bg1');
+    element.classList.add('Bg2');
+    i++;
+    if (i < 1000) {
+        setTimeout(
+            function() {
+                bgNew3();
+                $( document ).click(function() {
+                    $( "#toggle" ).effect( "shake" );
+                });
+            },
+            2000
+        );
+    }
+}
+
+function bgNew3() {
+    let element = document.getElementsByTagName('body')[0];
+    element.classList.remove('Bg2');
+    element.classList.add('Bg3');
+    i++;
+    if (i < 1000) {
+        setTimeout(
+            function() {
+                bgNew();
+                $( document ).click(function() {
+                    $( "#toggle" ).effect( "shake" );
+                });
+            },
+            2000
+        );
+    }
+}
+
+</script>
     </head>
-    <body>
+    <body class="Bg3" onload="bgNew()">
         <div id="root">
             <div class="navbar m-b-64">
                 <div class="navbar__left">
@@ -91,6 +153,12 @@
                         }, delay)
                     }
                 }
+            });
+        
+            $('.fullBackground').fullClip({
+              images: ['static/img/house.jpg', 'static/img/road.jpg', 'static/img/winter.jpg'],
+              transitionTime: 2000,
+              wait: 5000
             });
         </script>
     </body>

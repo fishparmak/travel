@@ -1,6 +1,50 @@
 @import "./stylesheets/all";
+ 
+//.fullBackground {
+//   background-position: center center;
+//   background-attachment: fixed;
+//   background-size: cover;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+// }
+
+.caption {
+  font-size: 30pt;
+  text-transform: uppercase;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.caption:after {
+  content:"\A";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background: #00bbeb;
+  display: inline-block;
+  margin: 0 0 -2px;
+}
 
 body {
-	background: url("../static/img/bg-test.jpeg") center no-repeat;
-	background-size: cover;
+ 		background-size: cover;
+ 		background-position: center center;
+ 		z-index: -1;
+ 		transition: background-image 0.5s ease-out; 
 }
+ 		.Bg1 {
+		background-image: url('/static/img/house.jpg');
+	}
+
+	.Bg2 {
+		background-image: url('/static/img/road.jpg')
+	}
+
+	.Bg3 {
+		background-image: url('/static/img/winter.jpg')
+	}
