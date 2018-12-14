@@ -49,3 +49,11 @@ body {
 .Bg3 {
 	background-image: url('/static/img/winter.jpg')
 }
+
+.title {
+	transform: scale(0.8);
+}
+
+.title-entered {
+	transform: scale(1);
+}
