@@ -23,9 +23,10 @@ function bgNew() {
         setTimeout(
             function() {
                 $( document ).click(function() {
-                    $( "#toggle" ).effect( "shake" );
+                    $( "#toggle" ).effect("shake");
                 });
                 bgNew2();
+                transform: scale(1.2);
             },
             2000
         );
@@ -44,6 +45,7 @@ function bgNew2() {
                 $( document ).click(function() {
                     $( "#toggle" ).effect( "shake" );
                 });
+                transform: scale(1.2);
             },
             2000
         );
@@ -191,7 +193,9 @@ function bgNew3() {
               images: ['static/img/house.jpg', 'static/img/road.jpg', 'static/img/winter.jpg'],
               transitionTime: 2000,
               wait: 5000
+
             });
+
         </script>
     </body>
 </html>
